@@ -1,14 +1,24 @@
-import React from 'react';
+"use client"
+
+import React, { useCallback } from 'react';
 import Image from "next/image"
 import Button from '../ui/button';
 import { FcGoogle } from "react-icons/fc"
 import { AiFillGithub } from "react-icons/ai"
 import twitterIcon from "../../public/images/x.svg"
+import useRegisterModal from '../hooks/useRegisterModal';
+import RegisterModal from '../modals/register-modal';
 
 const Auth = () => {
+    const registerModal = useRegisterModal()
+
+    const onOpenRegisterModal = useCallback(() => {
+        registerModal.onOpen()
+    }, [registerModal])
     return (
         <>
-            <div className='grid grid-cols-1 md:grid-cols-2 gap-10 items-center h-screen'>
+        <RegisterModal />
+            <div className='grid grid-cols-1 md:grid-cols-2 gap-10 items-center h-screen '>
                 <Image src={twitterIcon} alt="twitterIcon" width={450} height={450} className="justify-self-center hidden md:block" />
                 <div className='flex flex-col justify-center h-full md:h-[70vh] md:justify-between gap-6'>
                     <div className='block md:hidden'>
@@ -35,7 +45,7 @@ const Auth = () => {
                                <p className='mx-4'>or</p>
                                <div className='h-px bg-gray-700 w-1/2'/>
                             </div>
-                            <Button label={"Create account"} fullWidth/>
+                            <Button label={"Create account"} fullWidth onClick={onOpenRegisterModal}/>
                         </div>
                     </div>
                     <div className='w-full md:w-[60%]'>
