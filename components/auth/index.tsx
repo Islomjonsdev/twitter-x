@@ -9,8 +9,8 @@ const Auth = () => {
     return (
         <>
             <div className='grid grid-cols-1 md:grid-cols-2 gap-10 items-center h-screen'>
-                <Image src={twitterIcon} alt="twitterIcon" width={450} height={450} className="justify-self-end hidden md:block" />
-                <div className='flex flex-col justify-center h-full md:h-[70vh] md:justify-between'>
+                <Image src={twitterIcon} alt="twitterIcon" width={450} height={450} className="justify-self-center hidden md:block" />
+                <div className='flex flex-col justify-center h-full md:h-[70vh] md:justify-between gap-6'>
                     <h1 className='text-6xl font-bold'>Happening now</h1>
                     <div className='w-full md:w-[60%]'>
                         <h1 className='font-bold text-3xl mb-4'>Joing today.</h1>
