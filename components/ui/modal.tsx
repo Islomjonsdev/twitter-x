@@ -1,6 +1,6 @@
 import { X } from "lucide-react";
 import { ReactElement } from "react"
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "./dialog";
+import { Dialog, DialogContent } from "./dialog";
 
 interface ModalProps {
     isOpen?: boolean;
@@ -24,7 +24,7 @@ const Modal = ({ isOpen, onClose, body, footer, step, totalStep }: ModalProps) =
                     )}
                 </div>
                 <div className="mt-4">{body}</div>
-                {footer && <div className="mt-4">{footer}</div>}
+                {footer && <div>{footer}</div>}
             </DialogContent>
         </Dialog>
     )
