@@ -7,7 +7,7 @@ interface ButtonProps {
     fullWidth: boolean;
     large: boolean;
     disabled: boolean;
-    outline: boolean; 
+    outline: boolean;
     type?: "buton" | "submit";
     onClick?: () => void
 }

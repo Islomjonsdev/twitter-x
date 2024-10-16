@@ -18,7 +18,7 @@ const Auth = () => {
     return (
         <>
             <RegisterModal />
-            <div className='grid grid-cols-1 md:grid-cols-2 gap-10 items-center h-screen '>
+            <div className='grid grid-cols-1 md:grid-cols-2 gap-10 items-center h-screen'>
                 <Image src={twitterIcon} alt="twitterIcon" width={450} height={450} className="justify-self-center hidden md:block" />
                 <div className='flex flex-col justify-center h-full md:h-[70vh] md:justify-between gap-6'>
                     <div className='block md:hidden'>
