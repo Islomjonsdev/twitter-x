@@ -58,7 +58,7 @@ const Auth = () => {
                     </div>
                     <div className='w-full md:w-[60%]'>
                         <h3 className='font-medium text-xl mb-4'>Already have an account</h3>
-                        <Button label={"Sign in"} fullWidth outline onClick={openLoginModal}/>
+                        <Button label={"Sign in"} fullWidth outline onClick={openLoginModal} />
                     </div>
                 </div>
             </div>

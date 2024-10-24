@@ -1,6 +1,6 @@
 "use client"
 
-import { Dispatch, SetStateAction, useState } from 'react'
+import { Dispatch, SetStateAction, useCallback, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import useRegisterModal from '../hooks/useRegisterModal'
 import Modal from '../ui/modal'
@@ -10,14 +10,22 @@ import { registerStep1Shema, registerStep2Shema } from '@/lib/validation'
 import { Form, FormControl, FormField, FormItem, FormMessage } from '../ui/form'
 import Button from '../ui/button'
 import { Input } from '../ui/input'
+import useLoginModal from '../hooks/useLoginModal'
 
 const RegisterModal = () => {
   const [step, setStep] = useState(1)
   const [data, setData] = useState({ name: "", email: "" })
+  const loginModal = useLoginModal()
   const registerModal = useRegisterModal()
   const bodyContent = step === 1 ? <RegisterStep1 setData={setData} setStep={setStep} /> : <RegisterStep2 />
+
+  const onToggle = useCallback(() => {
+    registerModal.onClose()
+    loginModal.onOpen()
+  }, [loginModal, registerModal])
+
   const footer = <div className='text-center text-neutral-400 mb-4'>
-    <p>Already have an account? <span className='text-white cursor-pointer hover:underline'>Sign in</span></p>
+    <p>Already have an account? <span className='text-white cursor-pointer hover:underline' onClick={onToggle}>Sign in</span></p>
   </div>
   return (
     <Modal body={bodyContent} footer={footer} isOpen={registerModal.isOpen} onClose={registerModal.onClose} step={step} totalStep={2} />
@@ -45,6 +53,7 @@ const RegisterStep1 = ({ setData, setStep }: { setData: Dispatch<SetStateAction<
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 px-12">
+        <h3 className='text-3xl font-semibold text-white'>Create ana account</h3>
         <FormField
           control={form.control}
           name="name"
